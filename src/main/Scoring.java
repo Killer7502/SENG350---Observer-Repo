@@ -7,6 +7,8 @@ public class Scoring implements Subject {
 	ArrayList<Observer> observerList;
 	int teamScore1 = 0;
 	int teamScore2 = 0;
+	String teamName1 = "Team1";
+	String teamName2 = "Team2";
 	int currentQuarter = 0;
 	Random rand = new Random();
 	
@@ -27,7 +29,7 @@ public class Scoring implements Subject {
 	@Override
 	public void notifyObservers () {
 		for (Observer i : observerList) {
-			i.update(teamScore1, teamScore2, currentQuarter);
+			i.update(teamScore1, teamName1, teamScore2, teamName2, currentQuarter);
 		}
 	}
 	

@@ -71,7 +71,8 @@ public class Main {
 			+ "2. Simulate Quarter\n"
 			+ "3. Print current scores\n"
 			+ "4. Print prediction of end game scores\n"
-			+ "5. Print news title for last game\n"
-			+ "6. Print table of scores for all finished games (NOT IMPLEMENTED YET)\n");
+			+ "5. Print news title for last game (NOT IMPLEMENTED YET)\n"
+			+ "6. Print table of scores for all finished games (NOT IMPLEMENTED YET)\n"
+			+ "7. Exit program\n");
 	}
 }

@@ -4,13 +4,17 @@ public class PieceTitle implements Observer {
 	int teamScore1 = 0;
 	int teamScore2 = 0;
 	int currentQuarter = 0;
+	String teamName1 = "";
+	String teamName2 = "";
 	int scoreDiff = 0;
 	
 	@Override
-	public void update (int teamScore1, int teamScore2, int currentQuarter) {
+	public void update (int teamScore1, String teamName1, int teamScore2, String teamName2, int currentQuarter) {
 		this.teamScore1 = teamScore1;
 		this.teamScore2 = teamScore2;
 		this.currentQuarter = currentQuarter;
+		this.teamName1 = teamName1;
+		this.teamName2 = teamName2;
 		scoreDiff = teamScore1 - teamScore2;
 		checkWinner();
 	}
@@ -18,13 +22,13 @@ public class PieceTitle implements Observer {
 	private void checkWinner() {
 		if (currentQuarter == 4) {
 			if (scoreDiff > 0) { //Team1 Won
-				createTitle("Team1", "Team2", false);
+				createTitle(teamName1, teamName2, false);
 			}
 			else if (scoreDiff < 0) { //Team2 Won
-				createTitle("Team2", "Team1", false);
+				createTitle(teamName2, teamName1, false);
 			}
 			else { //Tie
-				createTitle("Team1", "Team2", true);
+				createTitle(teamName1, teamName2, true);
 			}
 		}
 	}
@@ -43,9 +47,9 @@ public class PieceTitle implements Observer {
 			}
 		}
 		else {
-			System.out.println("\nPiece Title: Team1 and Team2 tie in hard fought basketball match!");
+			System.out.println(winner + " and " + loser + " tie in hard fought basketball match!");
 		}
 		System.out.println("Final Score:");
-		System.out.println("Team1: " + teamScore1 + "     Team2: " + teamScore2);
+		System.out.println(teamName1 + ": " + teamScore1 + "     " + teamName2 + ": " + teamScore2);
 	}
 }
